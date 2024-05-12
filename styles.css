@@ -60,3 +60,7 @@ body {
 .key:hover {
     box-shadow: 0px 0px 5px 5px gray;
 }
+
+.entry {
+    border-top: 1px dashed gray;
+}
