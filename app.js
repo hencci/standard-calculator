@@ -42,6 +42,14 @@ function operate(operator, num1, num2) {
 
 numKey.map( button => {
     button.addEventListener("click", (e) => {
-        entry.innerText = e.target.innerText;
+        if (e.target.innerText == ".") {
+            if (entry.innerText == "") {
+                entry.innerText = `0${e.target.innerText}`;
+            }
+            else if (entry.includes(".")) {
+                return entry;
+            }
+        }
+        else entry.innerText += e.target.innerText;
     })
 })
