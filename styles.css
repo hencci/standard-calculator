@@ -8,20 +8,22 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
     background-color: black;
+    font-family: Arial, sans-serif;
 }
 
 .calculator {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     gap: 10px;
     background-color: black;
     width: 400px;
-    min-height: 450px;
+    max-width: 100%;
     margin: 20px;
     border: solid 1px wheat;
     border-radius: 10px;
+    padding: 10px;
 }
 
 .display {
@@ -36,16 +38,19 @@ body {
     font-size: 30px;
     border: solid 1px wheat;
     border-radius: 10px;
+    padding: 20px;
+}
+
+.entry, .afterMath {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .keyboard {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 5px;
-    border-top: solid 1px wheat;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    padding: 5px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
 }
 
 .key {
@@ -55,12 +60,42 @@ body {
     border: 0.5px solid wheat;
     border-radius: 10px;
     cursor: pointer;
+    background-color: #333;
+    color: white;
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .key:hover {
+    background-color: #444;
     box-shadow: 0px 0px 5px 5px gray;
 }
 
-.entry {
-    border-top: 1px dashed gray;
+.opKey {
+    background-color: #f90;
+    color: black;
+}
+
+.clearKey {
+    background-color: #f00;
+    color: white;
+}
+
+.equal {
+    background-color: #0a0;
+    color: white;
+}
+
+.key:active {
+    background-color: #555;
+    box-shadow: none;
+}
+
+@media (max-width: 500px) {
+    .calculator {
+        width: 100%;
+    }
+    .key {
+        line-height: 50px;
+        font-size: 16px;
+    }
 }
